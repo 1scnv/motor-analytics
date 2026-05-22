@@ -216,3 +216,35 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Motor Analytics — projeto específico
+
+# dados locais (nunca versionar)
+data/bronze/
+data/*.duckdb
+*.duckdb
+
+# arquivos de telemetria iRacing
+*.ibt
+
+# variáveis de ambiente
+.env
+.env.airflow
+
+# dbt
+transform/target/
+transform/dbt_packages/
+transform/logs/
+
+# Airflow
+orchestration/logs/
+orchestration/plugins/__pycache__/
+
+# Power BI
+dashboard/*.pbix
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db

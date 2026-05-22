@@ -1,0 +1,16 @@
+# Agente
+pyirsdk
+watchdog
+pandas
+pyarrow
+
+# Warehouse
+duckdb
+
+# dbt
+dbt-core
+dbt-duckdb
+
+# Utilitários
+python-dotenv
+loguru
