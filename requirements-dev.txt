@@ -1,0 +1,11 @@
+# Testes
+pytest
+pytest-cov
+
+# Qualidade de código
+sqlfluff
+pre-commit
+ruff
+
+# Desenvolvimento
+ipython
