@@ -1,0 +1,54 @@
+[project]
+name = "motor-analytics"
+version = "0.1.0"
+description = "End-to-end data pipeline for iRacing telemetry analysis"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+    { name = "Vinicius", email = "seu@email.com" }
+]
+
+[tool.ruff]
+line-length = 88 # black-compatible default
+target-version = "py312"
+exclude = [
+    ".venv",
+    "__pycache__",
+    "transform/target",       # dbt-generated
+    "transform/dbt_packages", # dbt-generated
+]
+
+[tool.ruff.lint]
+select = [
+    "E",  # style errors
+    "F",  # logical errors
+    "I",  # import sorting
+    "B",  # common bug patterns
+    "UP", # modern python syntax
+]
+ignore = [
+    "E501", # line length handled by line-length setting
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["agent"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.pytest.ini_options]
+testpaths = ["agent/tests"]
+pythonpath = ["."] # allows imports from project root
+addopts = "--cov=agent --cov-report=term-missing --cov-fail-under=70"
+
+[tool.coverage.run]
+source = ["agent"]
+omit = [
+    "agent/tests/*",
+    ".venv/*",
+]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
