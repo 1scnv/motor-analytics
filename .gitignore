@@ -209,6 +209,9 @@ transform/profiles.yml  # contains database credentials
 orchestration/logs/
 orchestration/airflow.db
 orchestration/airflow.cfg
+
+# Airflow
+orchestration/logs/
 orchestration/plugins/__pycache__/
 
 # Power BI
