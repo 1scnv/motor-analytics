@@ -1,0 +1,61 @@
+version: 2
+
+models:
+  - name: dim_track
+    description: Track dimension — one row per unique track
+    columns:
+      - name: track_id
+        description: Surrogate key
+        data_tests:
+          - not_null
+          - unique
+      - name: track
+        description: Track name
+        data_tests:
+          - not_null
+
+  - name: dim_car
+    description: Car dimension — one row per unique car
+    columns:
+      - name: car_id
+        description: Surrogate key
+        data_tests:
+          - not_null
+          - unique
+      - name: car
+        description: Car name
+        data_tests:
+          - not_null
+
+  - name: fct_laps
+    description: Lap-level aggregated metrics per session
+    columns:
+      - name: lap_id
+        description: Surrogate key
+        data_tests:
+          - not_null
+          - unique
+      - name: session_date
+        data_tests:
+          - not_null
+      - name: lap
+        data_tests:
+          - not_null
+      - name: lap_time
+        data_tests:
+          - not_null
+
+  - name: fct_telemetry_summary
+    description: Telemetry aggregated by lap and track position
+    columns:
+      - name: summary_id
+        description: Surrogate key
+        data_tests:
+          - not_null
+          - unique
+      - name: session_date
+        data_tests:
+          - not_null
+      - name: lap
+        data_tests:
+          - not_null
