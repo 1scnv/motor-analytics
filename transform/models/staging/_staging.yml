@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: stg_sessions
+    description: Cleaned session metadata from iRacing .ibt files
+    columns:
+      - name: ibt_filename
+        description: Original .ibt filename
+        data_tests:
+          - not_null
+          - unique
+      - name: track
+        data_tests:
+          - not_null
+      - name: car
+        data_tests:
+          - not_null
+      - name: session_type
+        data_tests:
+          - not_null
+      - name: total_laps
+        data_tests:
+          - not_null
+      - name: best_lap_time
+        data_tests:
+          - not_null
+      - name: session_date
+        data_tests:
+          - not_null
+
+  - name: stg_telemetry
+    description: Cleaned high-frequency telemetry data from iRacing .ibt files
+    columns:
+      - name: session_date
+        data_tests:
+          - not_null
+      - name: lap
+        data_tests:
+          - not_null
+      - name: throttle
+        data_tests:
+          - not_null
+      - name: brake
+        data_tests:
+          - not_null
+      - name: speed_ms
+        data_tests:
+          - not_null

@@ -228,3 +228,8 @@ Thumbs.db
 
 # AI assistants
 .claude/
+
+data/
+
+transform/.user.yml
+transform/profiles.yml

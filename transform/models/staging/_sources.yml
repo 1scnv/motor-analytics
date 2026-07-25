@@ -1,0 +1,46 @@
+version: 2
+
+sources:
+  - name: bronze
+    schema: bronze
+    description: Raw telemetry data from iRacing .ibt files
+    tables:
+      - name: telemetry_raw
+        description: High-frequency telemetry data (~60Hz) extracted from .ibt files
+        columns:
+          - name: SessionTime
+            description: Session time in seconds
+          - name: Lap
+            description: Lap number
+          - name: LapDistPct
+            description: Track position (0.0 to 1.0)
+          - name: Speed
+            description: Speed in m/s
+          - name: Throttle
+            description: Throttle input (0.0 to 1.0)
+          - name: Brake
+            description: Brake input (0.0 to 1.0)
+          - name: Gear
+            description: Current gear
+          - name: RPM
+            description: Engine RPM
+          - name: date
+            description: Session date (hive partition)
+
+      - name: session_raw
+        description: Session metadata extracted from .ibt files
+        columns:
+          - name: ibt_filename
+            description: Original .ibt filename
+          - name: track
+            description: Track name
+          - name: car
+            description: Car name
+          - name: session_type
+            description: Session type (Race, Practice, etc.)
+          - name: total_laps
+            description: Total laps completed
+          - name: best_lap_time
+            description: Best lap time in seconds
+          - name: date
+            description: Session date (hive partition)
